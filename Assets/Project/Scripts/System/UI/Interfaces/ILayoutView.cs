@@ -1,8 +1,13 @@
-﻿namespace Project.Scripts.Interfaces
+﻿using Cysharp.Threading.Tasks;
+
+namespace Project.Scripts.Interfaces
 {
     public interface ILayoutView
     {
-        void Hide();
+        bool Visible { get; }
+        UniTask ShowAsync();
+        UniTask HideAsync();
+        void  Hide();
         void Show();
     }
 }

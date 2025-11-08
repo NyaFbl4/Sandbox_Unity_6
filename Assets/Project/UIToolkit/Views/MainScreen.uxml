@@ -1,9 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ui:UXML
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ui="UnityEngine.UIElements"
-    xmlns:uie="UnityEditor.UIElements"
-    xsi:noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd"
->
-    
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement style="flex-grow: 1; position: absolute; background-image: url(&quot;project://database/Assets/Packages/Layer%20Lab/GUI%20Pro-CasualGame/ResourcesData/Sprites/Demo/Demo_Background/Background_02.png?fileID=2800000&amp;guid=1ba70e132f28941ed9977c1a213eb0a4&amp;type=3#Background_02&quot;); width: 100%; height: 100%;" />
+    </ui:VisualElement>
 </ui:UXML>

@@ -1,7 +1,7 @@
-﻿using Project.Scripts.Interfaces;
+﻿using Cysharp.Threading.Tasks;
+using Project.Scripts.Interfaces;
 using UnityEngine;
 using UnityEngine.UIElements;
-using NotImplementedException = System.NotImplementedException;
 
 namespace Project.Scripts.System.UI
 {
@@ -15,6 +15,7 @@ namespace Project.Scripts.System.UI
         {
             _uiDocument = GetComponent<UIDocument>();
             _root = _uiDocument.rootVisualElement;
+            
             Hide();
         }
 
@@ -22,6 +23,18 @@ namespace Project.Scripts.System.UI
         {
             get {return _root.style.display == DisplayStyle.Flex;} 
             set{ _root.style.display = value ? DisplayStyle.Flex : DisplayStyle.None; }
+        }
+        
+        public virtual async UniTask ShowAsync()
+        {
+            Show();
+            await UniTask.Yield();
+        }
+        
+        public virtual async UniTask HideAsync()
+        {
+            Hide();
+            await UniTask.Yield();
         }
         
         public void Hide()
