@@ -24,7 +24,7 @@ namespace Project.Scripts.System.Test
             _layoutView.Button1.clicked += OnButton1Clicked;
             _layoutView.Button2.clicked += OnButton2Clicked;
 
-            _layoutView.Show();
+            /*_layoutView.Show();*/
         }
         
         public void Dispose()

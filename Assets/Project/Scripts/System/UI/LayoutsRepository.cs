@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Project.Scripts.System.UI
 {
     [Serializable]
-    [CreateAssetMenu(fileName = "Layouts Repository", menuName = "UI/Repository")]
+    [CreateAssetMenu(fileName = "Layouts Repository", menuName = "Configs/Repository")]
     public class LayoutsRepository : ScriptableObject, ILayoutRepository
     { 
         [SerializeField] private List<LayoutViewBase> _layoutViews;
