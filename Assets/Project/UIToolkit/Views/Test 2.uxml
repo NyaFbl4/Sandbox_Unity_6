@@ -1,0 +1,6 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="Layout" style="flex-grow: 1;">
+        <ui:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Packages/Layer%20Lab/GUI%20Pro-CasualGame/ResourcesData/Sprites/Demo/Demo_Background/Background_05.png?fileID=2800000&amp;guid=bfd71187e5f614337ae0b4a9bcfff07f&amp;type=3#Background_05&quot;);" />
+        <ui:Label text="TestView1" name="Label" style="font-size: 100px; -unity-text-align: upper-center;" />
+    </ui:VisualElement>
+</ui:UXML>
