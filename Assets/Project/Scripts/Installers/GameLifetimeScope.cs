@@ -3,6 +3,7 @@ using Project.Scripts.DTO;
 using Project.Scripts.Interfaces;
 using Project.Scripts.System.Test;
 using Project.Scripts.System.UI;
+using Project.Scripts.UI.BattlePass;
 using Project.Scripts.UI.MainScreen;
 using Project.Scripts.UI.UseCases;
 using UnityEngine;
@@ -13,12 +14,11 @@ namespace Project.Scripts.Installers
 {
     public class GameLifetimeScope : LifetimeScope
     {
-        //[SerializeField] private LayoutsRepository _layoutsRepository;
-        
         [SerializeField] private TestView _testView;
         [SerializeField] private TestView1 _testView1;
         [SerializeField] private TestView2 _testView2;
         [SerializeField] private MainScreenView _mainScreenView;
+        [SerializeField] private BattlePassView _battlePassView;
 
         protected override void Configure(IContainerBuilder builder)
         {
@@ -26,8 +26,6 @@ namespace Project.Scripts.Installers
             RegisterUseCases(builder);
             RegisterViews(builder);
             RegisterPresenters(builder);
-
-            /*builder.RegisterEntryPoint<TesterDTO>(Lifetime.Singleton);*/
         }
 
         private void RegisterSystems(IContainerBuilder builder)
@@ -48,16 +46,16 @@ namespace Project.Scripts.Installers
             builder.RegisterComponentInNewPrefab(_testView1, Lifetime.Scoped).As<ITestView1>();
             builder.RegisterComponentInNewPrefab(_testView2, Lifetime.Scoped).As<ITestView2>();
             builder.RegisterComponentInNewPrefab(_mainScreenView, Lifetime.Scoped).As<IMainScreenView>();
+            builder.RegisterComponentInNewPrefab(_battlePassView, Lifetime.Scoped).As<IBattlePassView>();
         }
         
         private void RegisterPresenters(IContainerBuilder builder)
         {
-            //builder.RegisterLayoutsInstaller(_layoutsRepository);
-            
             builder.RegisterEntryPoint<TestPresenter>(Lifetime.Scoped);
             builder.RegisterEntryPoint<TestPresenter1>(Lifetime.Scoped);
             builder.RegisterEntryPoint<TestPresenter2>(Lifetime.Scoped);
             builder.RegisterEntryPoint<MainScreenPresenter>(Lifetime.Scoped);
+            builder.RegisterEntryPoint<BattlePassPresenter>(Lifetime.Scoped);
         }
     }
 }
