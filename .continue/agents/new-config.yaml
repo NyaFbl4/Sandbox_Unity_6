@@ -1,0 +1,28 @@
+﻿name: My Local Config
+version: 1.0.0
+schema: v1
+
+# Define which models can be used
+models:
+  - name: Qwen3 Coder 30B (локально)
+    provider: ollama
+    model: qwen3-coder:30b
+    apiBase: http://localhost:11434
+
+  - name: Qwen2.5 Coder 7B (для тестов)
+    provider: ollama
+    model: qwen2.5-coder:latest
+    apiBase: http://localhost:11434
+
+# Модель для автодополнения (работает пока печатаешь)
+tabAutocompleteModel:
+  name: Qwen2.5 Coder 1.5B (быстрое автодополнение)
+  provider: ollama
+  model: qwen2.5-coder:1.5b
+  apiBase: http://localhost:11434
+
+# Для поиска по коду (embeddings)
+embeddingsProvider:
+  provider: ollama
+  model: nomic-embed-text
+  apiBase: http://localhost:11434
