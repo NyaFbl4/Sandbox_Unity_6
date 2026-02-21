@@ -1,23 +1,45 @@
-﻿# This is an example configuration file
-# To learn more, see the full config.yaml reference: https://docs.continue.dev/reference
-
-name: Example Config
+﻿name: DeepSeek Local Config
 version: 1.0.0
 schema: v1
 
-# Define which models can be used
-# https://docs.continue.dev/customization/models
-models:
-  - name: my gpt-5
-    provider: openai
-    model: gpt-5
-    apiKey: YOUR_OPENAI_API_KEY_HERE
-  - uses: ollama/qwen2.5-coder-7b
-  - uses: anthropic/claude-4-sonnet
-    with:
-      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+# Контекст-провайдеры для доступа к проекту
+context:
+  - provider: folder
+  - provider: code
+  - provider: currentFile
+  - provider: codebase
+  - provider: diff
+  - provider: terminal
 
-# MCP Servers that Continue can access
-# https://docs.continue.dev/customization/mcp-tools
-mcpServers:
-  - uses: anthropic/memory-mcp
+# Основные модели
+models:
+  - name: DeepSeek-R1 8B (основная)
+    provider: ollama
+    model: deepseek-r1:8b
+    apiBase: http://localhost:11434
+
+  - name: DeepSeek-R1 8B (альтернатива)
+    provider: ollama
+    model: deepseek-r1:8b
+    apiBase: http://localhost:11434
+    # Можно добавить параметры для настройки
+    completionOptions:
+      temperature: 0.6
+      maxTokens: 4096
+
+# Модель для автодополнения во время печати
+tabAutocompleteModel:
+  name: DeepSeek Coder (автодополнение)
+  provider: ollama
+  model: deepseek-coder:1.3b  # или deepseek-r1:1.5b если есть
+  apiBase: http://localhost:11434
+
+# Для поиска по коду (embeddings)
+embeddingsProvider:
+  provider: ollama
+  model: nomic-embed-text
+  apiBase: http://localhost:11434
+
+# Дополнительные настройки
+experimental:
+  inlineEdit: true  # Включить редактирование прямо в файле
